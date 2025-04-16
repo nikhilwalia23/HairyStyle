@@ -1,0 +1,24 @@
+# Binaries
+*.exe
+*.out
+*.dll
+*.so
+
+# Go vendor
+/vendor/
+
+# Environment files
+.env
+
+# IDE stuff
+.vscode/
+.idea/
+
+
+# Output of `go build`
+/bin/
+/build/
+
+
+#Certificate
+cert.pem

@@ -1,0 +1,26 @@
+version: '3.8'
+
+services:
+  app:
+    build: .
+    container_name: go_app
+    ports:
+      - "8000:4242"
+    env_file:
+      - .env  # Loads environment variables from .env file
+    depends_on:
+      - db
+
+  db:
+    image: postgres:latest
+    container_name: postgres_db
+    restart: always
+    env_file:
+      - .env  # Loads DB credentials securely
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+
+volumes:
+  postgres_data:
