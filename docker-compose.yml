@@ -8,8 +8,11 @@ services:
       - "8000:4242"
     env_file:
       - .env  # Loads environment variables from .env file
+    volumes:
+    - ./.env:/app/.env
     depends_on:
       - db
+  
 
   db:
     image: postgres:latest
@@ -21,6 +24,31 @@ services:
       - "5432:5432"
     volumes:
       - postgres_data:/var/lib/postgresql/data
+  # appointment_service:
+  #   build:
+  #     context: ./appointment_service
+  #   container_name: appointment_service
+  #   ports:
+  #     - "8001:4242"
+  #   env_file:
+  #     - ./appointment_service/.env
+  #   depends_on:
+  #     - appointment_db
+
+  # appointment_db:
+  #   image: postgres:latest
+  #   container_name: postgres_appointment_db
+  #   restart: always
+  #   environment:
+  #    POSTGRES_HOST_AUTH_METHOD: trust
+  #   env_file:
+  #     - ./appointment_service/.env
+  #   ports:
+  #     - "5434:5432"
+  #   volumes:
+  #     - appointment_db_data:/var/lib/postgresql/data
 
 volumes:
   postgres_data:
+  # appointment_db_data:
+

@@ -26,7 +26,7 @@ func DB_Connnection() {
 		log.Fatal("Error loading .env file")
 	}
 
-	// Database connection string
+	// Database connection string (Using Db of postgress container changes it to localhost while running application in hostmachine)
 	dsn := "postgres://" + DB_USERNAME + ":" + DB_PASSWORD + "@localhost:5432/" + DB_NAME + "?sslmode=disable"
 
 	// Open database connection

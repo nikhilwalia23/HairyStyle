@@ -23,13 +23,14 @@ func main() {
 	//Loead Enviroment Varriable in go Program
 	Enverr := godotenv.Load()
 
-	// Initialize database
-	config.DB_Connnection()
-
 	if Enverr != nil {
 		log.Fatal("Error loading .env file")
 	}
 
+	// Initialize database
+	config.DB_Connnection()
+
+	//Changes Port While running throgh Conatiner
 	APP_PORT := os.Getenv("APP_PORT_LOCAL")
 
 	PORT_ADDRESS := ":" + APP_PORT

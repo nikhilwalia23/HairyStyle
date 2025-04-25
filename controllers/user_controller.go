@@ -89,14 +89,14 @@ func Login(c *gin.Context) {
 		return
 	}
 
-	_, errr := utils.AuthenticateUser(input.Email, input.Password)
+	userId, errr := utils.AuthenticateUser(input.Email, input.Password)
 
 	if errr != nil {
 		c.JSON(http.StatusInternalServerError, gin.H{"error": errr.Error()})
 		return
 	}
 
-	token, err := utils.GenerateJWT("user-id-123", input.Email)
+	token, err := utils.GenerateJWT(userId, input.Email)
 	if err != nil {
 		c.JSON(http.StatusInternalServerError, gin.H{"error": "Token generation failed"})
 		return
