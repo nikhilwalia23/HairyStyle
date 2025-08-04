@@ -51,9 +51,9 @@ func AuthenticateUser(emailOrPhone, password string) (string, error) {
 
 	var query string
 	if isEmail {
-		query = `SELECT id, password FROM auth_application.users WHERE email = $1`
+		query = `SELECT id, password FROM auth_application_schema.users WHERE email = $1`
 	} else {
-		query = `SELECT id, password FROM auth_application.users WHERE phone = $1`
+		query = `SELECT id, password FROM auth_application_schema.users WHERE phone = $1`
 	}
 
 	err := config.DB.QueryRow(query, emailOrPhone).Scan(&userID, &storedPassword)

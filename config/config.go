@@ -21,13 +21,13 @@ func DB_Connnection() {
 	DB_USERNAME := os.Getenv("POSTGRES_USER")
 	DB_PASSWORD := os.Getenv("POSTGRES_PASSWORD")
 	DB_NAME := os.Getenv("POSTGRES_DB_NAME")
-
+	DB_HOST := os.Getenv("DB_HOST")
 	if err != nil {
 		log.Fatal("Error loading .env file")
 	}
 
 	// Database connection string (Using Db of postgress container changes it to localhost while running application in hostmachine)
-	dsn := "postgres://" + DB_USERNAME + ":" + DB_PASSWORD + "@localhost:5432/" + DB_NAME + "?sslmode=disable"
+	dsn := "postgres://" + DB_USERNAME + ":" + DB_PASSWORD + "@" + DB_HOST + ":5432/" + DB_NAME + "?sslmode=disable"
 
 	// Open database connection
 	DB, err = sql.Open("pgx", dsn)

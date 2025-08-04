@@ -17,6 +17,7 @@ type LoginInput struct {
 	Password string `json:"password"`
 }
 
+// Function to register user
 func RegisterUser(c *gin.Context) {
 	var user models.User
 	if err := c.ShouldBindJSON(&user); err != nil {
@@ -47,7 +48,7 @@ func RegisterUser(c *gin.Context) {
 	}
 
 	query := `
-		INSERT INTO auth_application.users (id, name, role, email, phone, is_verified, aadhar_card, password)
+		INSERT INTO auth_application_schema.users (id, name, role, email, phone, is_verified, aadhar_card, password)
 		VALUES ($1, $2, $3, $4, $5, $6, $7, $8)
 	`
 
