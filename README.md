@@ -1,4 +1,4 @@
-# FirstApp: Go Microservices Starter
+# LooksReady: Go Microservices Starter
 
 This repository contains a Go-based microservices application with PostgreSQL, Kafka, and HTTP/3 support. It is designed for rapid development and deployment using Docker Compose.
 
