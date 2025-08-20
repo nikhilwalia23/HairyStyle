@@ -14,11 +14,17 @@
 .vscode/
 .idea/
 
+# macOS Finder settings
+.DS_Store
+**/.DS_Store
 
 # Output of `go build`
 /bin/
 /build/
-
+/Shop_Service/target/
 
 #Certificate
 cert.pem
+.DS_Store
+Shop_Service/src/main/resources/application.properties
+init/full_dump.sql
